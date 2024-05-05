@@ -1,0 +1,51 @@
+
+//Script.js
+
+var request = new XMLHttpRequest();
+request.open("GET","https://restcountries.com/v3.1/all");
+request.send();
+request.onload = function(){
+    var res = JSON.parse(request.response);
+    console.log(res);
+    //print the details of all countries comes under the Asia Region
+    var data = res.filter((ele)=>ele.region == "Asia");
+    console.log(data);
+    //Print the countrynames
+    
+}
+
+//index.html
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Personal Details</title>
+</head>
+<body>
+    <form action="onSubmit" style="text-align: center;"  >
+
+        <label for="firstName" style= "font-family: Georgia, 'Times New Roman', Times, serif; text-align: left;"  >First Name</label>
+        <input type="text" name="firstName" id="firstName" ><br><br>
+
+        <label for="middleName" style= "font-family: Georgia, 'Times New Roman', Times, serif;text-align: left;">Middle Name</label>
+        <input type="text" name="middleName" id="middleName" ><br><br>
+
+        <label for="lastName" style= "font-family: Georgia, 'Times New Roman', Times, serif;text-align: left;">Last Name</label>
+        <input type="text" name="lastName" id="lastName"><br><br>
+
+        <label for="email" style= "font-family: Georgia, 'Times New Roman', Times, serif;text-align: left;">Email</label>
+        <input type="email" name="" id="email"><br><br>
+
+        <label for="password" style= "font-family: Georgia, 'Times New Roman', Times, serif;text-align: left;">Password</label>
+        <input type="password" name="" id="password"><br><br>
+
+        <label for="inpFile" style= "font-family: Georgia, 'Times New Roman', Times, serif;text-align: left;">Upload File</label>
+        <input type="file" name="inpFile" id="inpFile"><br><br>
+
+        <input type="submit" name="onSubmit" id="onSubmit">
+
+        <input type="reset" value="Clear">
+    </form>
+</body>
+</html>
